@@ -1,9 +1,9 @@
-# Next.js and Fastify Project with Docker
+# App Tool and App TM Project with Docker
 
 This repository provides a complete setup of an application composed of two services:
 
-- **Next.js** as the frontend.
-- **Fastify** as the backend.
+- **App Tool** as an interface tool.
+- **App TM** as a translation memory API.
 
 Both applications run in Docker containers, orchestrated by Docker Compose for streamlined deployment.
 
@@ -138,4 +138,5 @@ Contributions are welcome. Please follow these steps to contribute:
 ---
 
 This README provides a clear and concise guide for installing, configuring, and deploying your project in development and production environments.
+
 # pecat-europeana-pack
