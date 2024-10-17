@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  nextjs-app:
+    build:
+      context: ./app-tool 
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - fastify-app
+      - sbd_server 
+
+  fastify-app:
+    build:
+      context: ./app-tm
+      dockerfile: Dockerfile
+    ports:
+      - "3005:3005"
+    environment:
+      - NODE_ENV=production
+
+  sbd_server:
+    image: public.ecr.aws/b4j5l6c5/europeana/monadic.sbd_server:v1
+    ports:
+      - "81:80"
+    environment:
+      - NODE_ENV=production
