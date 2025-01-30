@@ -107,10 +107,10 @@ docker-compose down
 
 ### Open a Terminal in a Container
 
-To access a terminal inside one of the containers (e.g., `nextjs-app`):
+To access a terminal inside one of the containers (e.g., `app-tool`):
 
 ```bash
-docker-compose exec nextjs-app /bin/sh
+docker-compose exec app-tool /bin/sh
 ```
 
 ### Regenerate the Prisma Client
@@ -118,7 +118,9 @@ docker-compose exec nextjs-app /bin/sh
 If you make changes to the Prisma schema, you can regenerate the client directly:
 
 ```bash
-docker-compose exec nextjs-app npx prisma generate --schema=/app/prisma/schema.prisma
+docker-compose exec app-tool npx prisma migrate dev --name "initial_migration" --schema=./prisma/schema.prisma
+docker-compose exec app-tool npx prisma migrate deploy --schema=./prisma/schema.prisma
+docker-compose exec app-tool npx prisma generate --schema=/app/prisma/schema.prisma
 ```
 
 ## Security Considerations

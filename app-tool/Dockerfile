@@ -29,8 +29,8 @@ RUN pnpm install
 RUN mkdir -p public/files && chmod -R 755 public/files
 
 # Genera el cliente Prisma y compila el proyecto
-RUN npx prisma migrate dev --name "initial_migration" --schema=./prisma/schema.prisma
-RUN npx prisma migrate deploy --schema=./prisma/schema.prisma
+# RUN npx prisma migrate dev --name "initial_migration" --schema=./prisma/schema.prisma
+# RUN npx prisma migrate deploy --schema=./prisma/schema.prisma
 
 
 RUN pnpm run build
