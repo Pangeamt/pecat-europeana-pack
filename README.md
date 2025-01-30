@@ -33,15 +33,13 @@ The project structure is organized with two main directories for the application
 ```plaintext
 .
 ├── app-tool/                   # App Tool application source code
-│   ├── public/
-│   ├── prisma/
-│   └── src/
+│   ├── .env
+│   └── Dockerfile
 ├── app-tm/                     # App TM application source code
-│   ├── controllers/
-│   └── src/
+│   ├── .env 
+│   └── Dockerfile
 ├── docker-compose.yml          # Docker Compose service configuration
-├── README.md                   # This file
-└── .env                        # Environment variables
+└── README.md                   # This file
 ```
 
 ## Environment Configuration
