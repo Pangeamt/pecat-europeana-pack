@@ -47,6 +47,10 @@ The project structure is organized with two main directories for the application
 To customize the configuration, create an `.env` file in the project root directory with the following variables (if they don’t already exist in your project):
 
 ```plaintext
+# Environment variables for docker-compose.yml
+# Environment variables for MTQE huggingface token
+HF_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 # Environment variables for App Tool
 DATABASE_URL="mysql://root:<DB_PASSWORD>@<DB_HOST>:3306/<DB_NAME>"
 NEXTAUTH_SECRET=<YOUR_NEXTAUTH_SECRET>
@@ -57,18 +61,19 @@ MINT_CLIENT_SECRET=<YOUR_MINT_CLIENT_SECRET>
 NEXT_PUBLIC_TM_HOST=http://localhost:3005/api-tm
 SEGMENTED_TEXTS_HOST=http://localhost:81
 MT_TEXTS_HOST=http://<MT_HOST>:8080/NexRelay/v1/translate
-OXIGEN_API_HOST=https://<OXIGEN_API_HOST>/oxygen/
+OXIGEN_API_HOST=https://<OXIGEN_API_HOST>/oxygen
+MTQE=http://<MTQE_HOST>/module/mtqe_score/process_list
 
 
-# Environment variables for Fastify
+# Environment variables for app-tm
 FASTIFY_PORT=3005
 FASTIFY_HOST=0.0.0.0
 HOST_OPENSEARCH="<OPENSEARCH_HOST>"
 HOST_OPENSEARCH_AUTH="<OPENSEARCH_USER>:<OPENSEARCH_PASSWORD>"
 
-# Environment variables for sbd_server
-SBD_SERVER_PORT=81
+
 ```
+
 
 > **Note**: Be sure to adapt the URLs according to your deployment environment.
 

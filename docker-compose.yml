@@ -1,5 +1,4 @@
 version: "3.8"
-
 services:
   app-tm:
     build:
@@ -30,3 +29,38 @@ services:
     environment:
       - SBD_SERVER_PORT=81
       - NODE_ENV=production
+
+  oxygen:
+    image: public.ecr.aws/b4j5l6c5/monadic.europeana:v1
+    container_name: oxygen
+    environment:
+      - PANGEANIC_TOMCAT_URL=http://
+      - EUROPEANA_TOMCAT_URL=http://prodeuropeana.pangeamt.com:8080
+      - OCR_BRIDGE_URL=http://
+    depends_on:
+      - monadic-sbd-server
+      - longhorn
+    volumes:
+      - ./data:/data
+    ports:
+      - "82:80"
+
+  longhorn:
+    image: public.ecr.aws/b4j5l6c5/monadic.longhorn_server:v1
+    container_name: longhorn
+    depends_on:
+      - monadic-sbd-server
+
+  mtqe:
+    image: public.ecr.aws/b4j5l6c5/module/mtqe:1.0.0
+    container_name: mtqe
+    environment:
+      - HF_TOKEN=
+    depends_on:
+      - monadic-sbd-server
+    ports:
+      - "83:80"
+
+networks:
+  app-network:
+    driver: bridge
